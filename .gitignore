@@ -1,0 +1,10 @@
+requirements.txt
+/venv/
+/sys
+/logs/*.log
+/__pycache__/
+/*/__pycache__/
+/*/*/__pycache__/
+.env
+/staticfiles/
+*.tar.gz

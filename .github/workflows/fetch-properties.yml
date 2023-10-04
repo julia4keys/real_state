@@ -1,0 +1,33 @@
+name: Fetch properties
+on: 
+  schedule:
+    - cron: '33 6,12,18 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+          fetch-depth: 0
+      - name: Fetch properties data
+        run: |
+          pip3 install pip-tools
+          pip-compile requirements.in
+          pip3 install -r requirements.txt
+          python3 main.py
+          git config user.name "Vigilante de casas"
+          git config user.email "actions@users.noreply.github.com"
+          git add ./www/index.html
+          DATE=$(date -Iseconds)
+          git commit --message="Properties fetch on $DATE"
+      - name: Hace el «push»
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT }}
+          branch: main
+      - run: echo "🍏 This job's status is ${{ job.status }}."

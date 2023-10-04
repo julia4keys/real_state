@@ -1,0 +1,5 @@
+# requirements.in
+requests
+urllib3
+beautifulsoup4
+Jinja2
