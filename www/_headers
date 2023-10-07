@@ -5,6 +5,6 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Permissions-Policy: document-domain=()
-  Content-Security-Policy: script-src 'self'; frame-ancestors 'none'; img-src 'self' *.idealista.com;
+  Content-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net; frame-ancestors 'none'; img-src 'self' *.idealista.com;
   Access-Control-Allow-Origin: https://www.cuatrokeys.com/
   Cross-Origin-Resource-Policy: same-origin
