@@ -1,10 +1,10 @@
 # Headers for Cloudflare Pages
 
 /*
-    X-Frame-Options: DENY
-    X-Content-Type-Options: nosniff
-    Referrer-Policy: no-referrer
-    Permissions-Policy: document-domain=()
-    Content-Security-Policy: script-src 'self'; frame-ancestors 'none'; img-src 'self' *.idealista.com;
-    Access-Control-Allow-Origin: https://www.cuatrokeys.com/
-    Cross-Origin-Resource-Policy: same-origin
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: document-domain=()
+  Content-Security-Policy: script-src 'self'; frame-ancestors 'none'; img-src 'self' *.idealista.com;
+  Access-Control-Allow-Origin: https://www.cuatrokeys.com/
+  Cross-Origin-Resource-Policy: same-origin
