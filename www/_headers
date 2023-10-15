@@ -8,3 +8,4 @@
   Content-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net overtracking.com; frame-ancestors 'none'; img-src 'self' *.idealista.com data:;
   Access-Control-Allow-Origin: https://www.cuatrokeys.com/
   Cross-Origin-Resource-Policy: same-origin
+  Permissions-Policy: browsing-topics=()
