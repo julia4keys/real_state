@@ -23,6 +23,7 @@ jobs:
           git config user.name "Vigilante de casas"
           git config user.email "actions@users.noreply.github.com"
           git add ./www/index.html
+          git add ./www/img/properties/*
           DATE=$(date -Iseconds)
           git commit --message="Properties fetch on $DATE"
       - name: Hace el «push»
