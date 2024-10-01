@@ -1,4 +1,4 @@
-import requests
+import requests,os
 from bs4 import BeautifulSoup
 
 
@@ -41,7 +41,12 @@ def fetch_ads(real_state: str, rent: bool = False):
                 item['title'] = tag_link.getText().strip('\n') 
                 item['link'] = 'https://www.idealista.com' + tag_link['href']
             if tag_image:
-                item['image'] = tag_image['src']
+                im_buf = requests.get(tag_image['src'], headers=HEADERS)
+                if im_buf.status_code == 200:
+                    filename = "./www/img/properties/" + os.path.basename(tag_image['src'])
+                    with open(filename, mode="wb") as file:
+                        file.write(im_buf.content)
+                item['image'] = "img/properties/" + os.path.basename(tag_image['src'])
             if tag_price:
                 item['price'] = tag_price.getText().strip('\n')
             if tag_parking:    
