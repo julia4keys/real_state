@@ -43,7 +43,8 @@ def fetch_ads(real_state: str, rent: bool = False):
             if tag_image:
                 im_buf = requests.get(tag_image['src'], headers=HEADERS)
                 if im_buf.status_code == 200:
-                    filename = "./www/img/properties/" + os.path.basename(tag_image['src'])
+                    folder = "./www/img/properties/"
+                    filename = folder + os.path.basename(tag_image['src'])
                     with open(filename, mode="wb") as file:
                         file.write(im_buf.content)
                 item['image'] = "img/properties/" + os.path.basename(tag_image['src'])

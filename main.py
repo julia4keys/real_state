@@ -2,6 +2,8 @@ import idealista
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime as dt
 from datetime import timezone
+import os
+
 
 env = Environment(
     loader=FileSystemLoader( searchpath="./template" ),
@@ -9,7 +11,10 @@ env = Environment(
 )
 
 if __name__ == "__main__":
-
+    folder = "./www/img/properties/"
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder,filename)
+        os.remove(file_path)
     sale_data = idealista.fetch_ads('cuatrokeys')
     rent_data = idealista.fetch_ads('cuatrokeys', rent=True)
     template = env.get_template("index_temp.html")
