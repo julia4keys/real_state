@@ -12,9 +12,10 @@ env = Environment(
 
 if __name__ == "__main__":
     folder = "./www/img/properties/"
-    for filename in os.listdir(folder):
-        file_path = os.path.join(folder,filename)
-        os.remove(file_path)
+    if os.path.exists(folder):
+        for filename in os.listdir(folder):
+            file_path = os.path.join(folder,filename)
+            os.remove(file_path)
     sale_data = idealista.fetch_ads('cuatrokeys')
     rent_data = idealista.fetch_ads('cuatrokeys', rent=True)
     template = env.get_template("index_temp.html")
