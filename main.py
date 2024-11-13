@@ -15,7 +15,9 @@ if __name__ == "__main__":
     if os.path.exists(folder):
         for filename in os.listdir(folder):
             file_path = os.path.join(folder,filename)
-            os.remove(file_path)
+            extension = os.path.splitext(file_path)[1]
+            if extension.lower() == '.jpg':
+                os.remove(file_path)
     sale_data = idealista.fetch_ads('cuatrokeys')
     rent_data = idealista.fetch_ads('cuatrokeys', rent=True)
     template = env.get_template("index_temp.html")
