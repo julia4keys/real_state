@@ -27,6 +27,7 @@ def fetch_ads(real_state: str, rent: bool = False):
     data = {}
     req = requests.get(url, headers=HEADERS)
     if req.status_code == 200:
+        print(req.text)
         html = BeautifulSoup(req.text, 'html.parser')
         ads = html.find_all('article', {'class': 'item-multimedia-container'})
         for i, ad in enumerate(ads):
@@ -57,6 +58,7 @@ def fetch_ads(real_state: str, rent: bool = False):
             if tag_ellipsis:
                 item['ellipsis'] = tag_ellipsis.getText().strip('\n')
             data[i] = item
+            print(item)
     return data
 
 
