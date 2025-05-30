@@ -26,8 +26,9 @@ def fetch_ads(real_state: str, rent: bool = False):
         url = URL + real_state + '/venta-viviendas/'
     data = {}
     req = requests.get(url, headers=HEADERS)
+    print(req.text)
     if req.status_code == 200:
-        print(req.text)
+        
         html = BeautifulSoup(req.text, 'html.parser')
         ads = html.find_all('article', {'class': 'item-multimedia-container'})
         for i, ad in enumerate(ads):
