@@ -3,3 +3,6 @@ requests
 urllib3
 beautifulsoup4
 Jinja2
+selenium
+webdriver-manager
+selenium-stealth

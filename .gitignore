@@ -8,3 +8,4 @@ requirements.txt
 .env
 /staticfiles/
 *.tar.gz
+*.deb
