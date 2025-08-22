@@ -9,3 +9,4 @@ requirements.txt
 /staticfiles/
 *.tar.gz
 *.deb
+/downloaded_files/
