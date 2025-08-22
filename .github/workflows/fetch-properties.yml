@@ -17,6 +17,7 @@ jobs:
       - name: Fetch properties data
         run: |
           sudo apt-get update
+          sudo apt-get install -y python3-venv
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
           python3 -m venv .venv
