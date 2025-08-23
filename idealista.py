@@ -1,4 +1,4 @@
-import requests,os
+import requests,os,time
 from bs4 import BeautifulSoup
 import random
 
@@ -39,7 +39,8 @@ def fetch_ads(real_state: str, rent: bool = False):
             item['title'] = tag_link.getText().strip('\n') 
             item['link'] = 'https://www.idealista.com' + tag_link['href']
         if tag_image:
-            im_buf = requests.get(tag_image['src'], headers=HEADERS)
+            time.sleep(5)
+            im_buf = requests.get(tag_image['src'])#, headers=HEADERS)
             if im_buf.status_code == 200:
                 folder = "./www/img/properties/"
                 filename = folder + os.path.basename(tag_image['src'])
