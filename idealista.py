@@ -18,9 +18,9 @@ def fetch_ads(real_state: str, rent: bool = False):
     #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver = Driver(uc=True, headless=True)
     driver.uc_open_with_reconnect(url, reconnect_time=4)
-    print(url)
+    #print(url)
     print(driver.page_source)
-    print(driver.execute_script("return navigator.userAgent"))
+    #print(driver.execute_script("return navigator.userAgent"))
     
     # print(req.status_code)
     # print(req.text)
