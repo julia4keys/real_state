@@ -6,6 +6,7 @@ from seleniumbase import Driver
 
 
 URL = 'https://www.idealista.com/pro/'
+HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
 def fetch_ads(real_state: str, rent: bool = False):
 
@@ -40,7 +41,7 @@ def fetch_ads(real_state: str, rent: bool = False):
             item['link'] = 'https://www.idealista.com' + tag_link['href']
         if tag_image:
             time.sleep(5)
-            im_buf = requests.get(tag_image['src'])#, headers=HEADERS)
+            im_buf = requests.get(tag_image['src'], headers=HEADERS)
             if im_buf.status_code == 200:
                 folder = "./www/img/properties/"
                 filename = folder + os.path.basename(tag_image['src'])
