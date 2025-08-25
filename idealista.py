@@ -6,7 +6,16 @@ from seleniumbase import Driver
 
 
 URL = 'https://www.idealista.com/pro/'
-HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+
+HEADERS = {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3',
+        'DNT': '1',
+        'Connection': 'keep-alive',
+        'Cookie': 'cookie-agreed=0',
+        'Upgrade-Insecure-Requests': '1'
+    }
 
 def fetch_ads(real_state: str, rent: bool = False):
 
@@ -15,17 +24,10 @@ def fetch_ads(real_state: str, rent: bool = False):
     else:    
         url = URL + real_state + '/venta-viviendas/'
     data = {}
-    #req = requests.get(url, headers=HEADERS)
-    #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver = Driver(uc=True, headless=True)
     driver.uc_open_with_reconnect(url, reconnect_time=4)
-    #print(url)
     print(driver.page_source)
-    #print(driver.execute_script("return navigator.userAgent"))
-    
-    # print(req.status_code)
-    # print(req.text)
-    # if req.status_code == 200:
+
     html = BeautifulSoup(driver.page_source, 'html.parser')
     ads = html.find_all('article', {'class': 'item-multimedia-container'})
     for i, ad in enumerate(ads):
@@ -40,7 +42,7 @@ def fetch_ads(real_state: str, rent: bool = False):
             item['title'] = tag_link.getText().strip('\n') 
             item['link'] = 'https://www.idealista.com' + tag_link['href']
         if tag_image:
-            time.sleep(5)
+            time.sleep(random.choice([1, 4, 6, 8, 10, 12]))
             im_buf = requests.get(tag_image['src'], headers=HEADERS)
             if im_buf.status_code == 200:
                 folder = "./www/img/properties/"
