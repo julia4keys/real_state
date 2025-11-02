@@ -24,7 +24,7 @@ def fetch_ads(real_state: str, rent: bool = False):
     else:    
         url = URL + real_state + '/venta-viviendas/'
     data = {}
-    driver = Driver(uc=True, headless=True)
+    driver = Driver(uc=True)
     driver.uc_open_with_reconnect(url, reconnect_time=4)
     print(driver.page_source)
 
