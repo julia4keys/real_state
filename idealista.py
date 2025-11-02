@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import random
 
 from seleniumbase import Driver
+from seleniumbase import sb_cdp
 
 
 URL = 'https://www.idealista.com/pro/'
@@ -26,6 +27,7 @@ def fetch_ads(real_state: str, rent: bool = False):
     data = {}
     driver = Driver(uc=True)
     driver.uc_open_with_reconnect(url, reconnect_time=4)
+    #sb = sb_cdp.Chrome(url, geoloc=(48.87645, 2.26340))
     print(driver.page_source)
 
     html = BeautifulSoup(driver.page_source, 'html.parser')
