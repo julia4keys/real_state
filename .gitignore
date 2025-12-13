@@ -10,3 +10,4 @@ requirements.txt
 *.tar.gz
 *.deb
 /downloaded_files/
+.continue/
