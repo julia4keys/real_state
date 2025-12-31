@@ -7,7 +7,7 @@ on:
 
 jobs:
   Explore-GitHub-Actions:
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
