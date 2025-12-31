@@ -30,5 +30,5 @@ if __name__ == "__main__":
     # Cargar la plantilla HTML
     template = env.get_template("index_temp.html")
     # Renderizar la plantilla con los datos de anuncios y la fecha actual
-    with open('./www/index.html','w') as f:
+    with open('./www/index.html','w', encoding='utf-8') as f:
                 f.write(template.render(sale_ads=sale_data, rent_ads=rent_data, updated=dt.now(tz=timezone.utc).strftime('%d-%b-%Y %H:%M %Z')))
