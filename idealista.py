@@ -93,6 +93,7 @@ def fetch_ads(real_state: str, rent: bool = False):
 
             data[i] = item
             logger.info(f"Ad {i}: {item}")
+            print(f"Ad {i}: {item}")
 
     except Exception as e:
         logger.error(f"Error fetching ads: {e}")
