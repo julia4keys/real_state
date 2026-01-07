@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from seleniumbase import Driver
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO,encoding='utf-8')
 logger = logging.getLogger(__name__)
 
 # Constants
