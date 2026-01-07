@@ -53,7 +53,7 @@ def fetch_ads(real_state: str, rent: bool = False):
     try:
         driver.uc_open_with_reconnect(url, reconnect_time=4)
         html = BeautifulSoup(driver.page_source, 'html.parser')
-        print(html)
+        print(html.encode('utf-8'))
         ads = html.find_all('article', {'class': 'item-multimedia-container'})
 
         for i, ad in enumerate(ads):
@@ -94,7 +94,7 @@ def fetch_ads(real_state: str, rent: bool = False):
 
             data[i] = item
             logger.info(f"Ad {i}: {item}")
-            print(f"Ad {i}: {item}")
+            #print(f"Ad {i}: {item}")
 
     except Exception as e:
         logger.error(f"Error fetching ads: {e}")
