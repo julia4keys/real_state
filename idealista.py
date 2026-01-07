@@ -55,7 +55,7 @@ def fetch_ads(real_state: str, rent: bool = False):
         driver.wait_for_text_not_visible("Verificación del dispositivo", timeout=60)
         html = BeautifulSoup(driver.page_source, 'html.parser', from_encoding="utf-8")
         print(html.encode('utf-8'))
-        ads = html.find_all('article', {'class': 'item-multimedia-container'})
+        ads = html.encode('utf-8').find_all('article', {'class': 'item-multimedia-container'})
 
         for i, ad in enumerate(ads):
             item = {
