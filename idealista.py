@@ -53,7 +53,7 @@ def fetch_ads(real_state: str, rent: bool = False):
     try:
         driver.uc_open_with_reconnect(url, reconnect_time=4)
         driver.wait_for_text_not_visible("Verificación del dispositivo", timeout=60)
-        html = BeautifulSoup(driver.page_source, 'html.parser')
+        html = BeautifulSoup(driver.page_source, 'html.parser', from_encoding="utf-8")
         print(html.encode('utf-8'))
         ads = html.find_all('article', {'class': 'item-multimedia-container'})
 
