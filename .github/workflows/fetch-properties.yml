@@ -1,12 +1,12 @@
 name: Fetch properties
 on: 
-  #schedule:
-  #  - cron: '33 6 * * *'
+  schedule:
+    - cron: '33 6 * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  Explore-GitHub-Actions:
+  Update-Properties:
     runs-on: self-hosted
     steps:
       - name: Check out repository code
